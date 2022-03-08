@@ -4,6 +4,8 @@
  */
 package com.mycompany.velocimetro;
 
+import java.awt.Color;
+
 /**
  *
  * @author jose.ncdantas
@@ -26,12 +28,51 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        mnuCorDeFundo = new javax.swing.JMenu();
+        mnuCorBranca = new javax.swing.JMenuItem();
+        mnuCorPreta = new javax.swing.JMenuItem();
+        jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuManutencao = new javax.swing.JMenu();
         mnuCadastroCliente = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
+        mnuCorDeFundo.setText("Alterar Cor de Fundo");
+
+        mnuCorBranca.setText("Branco");
+        mnuCorBranca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuCorBrancaActionPerformed(evt);
+            }
+        });
+        mnuCorDeFundo.add(mnuCorBranca);
+
+        mnuCorPreta.setText("Preto");
+        mnuCorPreta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuCorPretaActionPerformed(evt);
+            }
+        });
+        mnuCorDeFundo.add(mnuCorPreta);
+
+        jPopupMenu1.add(mnuCorDeFundo);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setComponentPopupMenu(jPopupMenu1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 266, Short.MAX_VALUE)
+        );
 
         mnuManutencao.setText("Manutenção");
 
@@ -55,19 +96,32 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 268, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnuCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCadastroClienteActionPerformed
-        // TODO add your handling code here:
+        CadastroCliente telaCliente = new CadastroCliente();
+        telaCliente.setVisible(true);
     }//GEN-LAST:event_mnuCadastroClienteActionPerformed
+
+    private void mnuCorBrancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCorBrancaActionPerformed
+        this.jPanel1.setBackground(Color.white);
+    }//GEN-LAST:event_mnuCorBrancaActionPerformed
+
+    private void mnuCorPretaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCorPretaActionPerformed
+        this.jPanel1.setBackground(Color.black);
+    }//GEN-LAST:event_mnuCorPretaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -107,7 +161,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JMenuItem mnuCadastroCliente;
+    private javax.swing.JMenuItem mnuCorBranca;
+    private javax.swing.JMenu mnuCorDeFundo;
+    private javax.swing.JMenuItem mnuCorPreta;
     private javax.swing.JMenu mnuManutencao;
     // End of variables declaration//GEN-END:variables
 }
